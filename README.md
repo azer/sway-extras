@@ -13,7 +13,7 @@ Now the commands documented below will be available in your system.
 
 ## Commands
 
-#### prompt
+### prompt
 
 Prompt user any question and get an answer. Example:
 
@@ -27,13 +27,13 @@ It'll launch a simple prompt that will look like:
 
 The rest of the commands are basically based on this simple custom Rofi call.
 
-#### session-menu
+### session-menu
 
 Session menu customized for Sway. It can be tweaked to work with other desktops (i3?) easily.
 
 ![](https://cldup.com/zdOW0IReBp.png)
 
-#### capture-screen
+### capture-screen
 
 A menu to shoot screenshots, screencasts and gifcasts. It requires following dependencies specific to Sway:
 
