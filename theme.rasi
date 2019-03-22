@@ -1,0 +1,66 @@
+* {
+  black: rgba(0, 0, 0, 0.75);
+  white: rgba(255, 255, 255 , 0.8);
+  grey: rgba(200, 200, 200 , 0.8);
+  turquoise: rgb(254, 205, 109);
+  selected: #00c47e;
+  /*defaultFont: "Dejavu Sans Mono 24";*/
+   defaultFont: "Source Code Pro 24";
+  font: @defaultFont;
+  text-font: @defaultFont;
+}
+
+#window {
+  location: center;
+  anchor: center;
+  padding: 450;
+  background-color: @black;
+}
+
+#mainbox {
+  background-color: transparent;
+}
+
+#prompt {
+  background-color: transparent;
+  color: @turquoise;
+  margin: 0 10px 0 0;
+}
+
+#message {
+  background-color: transparent;
+}
+
+#listview {
+  background-color: transparent;
+  lines: 5;
+  margin: 10px 0 0 0;
+}
+
+#inputbar {
+ background-color: transparent;
+}
+
+#element {
+  background-color: transparent;
+  color: @white;
+}
+
+#element selected.normal {
+  color: @selected;
+}
+
+#entry {
+  background-color: transparent;
+  color: @turquoise;
+}
+
+#case-indicator {
+  background-color: transparent;
+  color: @white;
+}
+
+inputbar {
+  background-color: transparent;
+  children: [ prompt, entry, case-indicator ];
+}

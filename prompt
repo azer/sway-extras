@@ -1,0 +1,25 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+while [ $# -gt 0 ]; do
+    if [[ ${1:0:2} == "--" ]]; then
+        v="${1/--/}"
+        declare $v="$2"
+    elif [[ ${1:0:1} == "-" ]]; then
+        v="${1/-/}"
+        declare $v="$2"
+    fi
+
+    shift
+done
+
+if [[ -z "${file// }" ]]; then
+    options=$o
+fi
+
+if [[ -z "${question// }" ]]; then
+    question=$q
+fi
+
+echo -e $(echo $options | sed -e $'s/,/\\\\n/g') | rofi -theme $DIR/theme.rasi -lines 5 -show run -modi run -fullscreen -bw 0 -separator-style none -hide-scrollbar -kb-row-select 'Tab' -kb-row-tab '' -dmenu -p "$question"
