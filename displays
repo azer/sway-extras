@@ -92,6 +92,10 @@ background() {
         if [[ "$last_executed_key" != "$current_key" ]]; then
             execute_config
             last_executed_key="$current_key"
+
+            if [[ -n "${on_plug// }" ]]; then
+                eval $on_plug
+            fi
         fi
 
         updated_config=$(get_current_config)
@@ -183,6 +187,8 @@ else
     echo "    Set resolution for specified output"
     echo "    --disable"
     echo "    Disable specified output"
+    echo "    --on-plug"
+    echo "    Call given script when a display gets plugged"
     echo "    -h --help"
     echo "    Show help"
 fi
