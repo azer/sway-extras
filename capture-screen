@@ -30,6 +30,7 @@ full_screenshot() {
 convert_mp4_to_gif() {
     filename=$gifcasts_folder/`date +%Y-%m-%d.%H:%M:%S`.gif
     echo "Converting $1 to $filename"
+    palette="/tmp/palette.png"
     filters="fps=15,scale=$2:-1:flags=lanczos"
     ffmpeg -v warning -i "file:$1" -vf "$filters,palettegen" -y $gifcast_palette
     ffmpeg -v warning -i "file:$1" -i $gifcast_palette -lavfi "$filters [x]; [x][1:v] paletteuse" -y "file:$filename"
