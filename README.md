@@ -1,12 +1,12 @@
-# Useful Rofi Commands
+# sway-extras
 
 A collection of desktop commands made with [Rofi](https://github.com/DaveDavenport/rofi) for Sway. They can be easily forked and adjusted for another desktops (e.g i3).
 
 ## Install
 
 ```bash
-$ git clone https://github.com/azer/useful-rofi-commands.git
-$ export PATH=$PATH:~/useful-rofi-commands # Adjust the path to where you clone the repo at
+$ git clone https://github.com/azer/sway-extras.git
+$ export PATH=$PATH:~/sway-extras # Adjust the path to where you clone the repo at
 ```
 
 Now the commands documented below will be available in your system.
