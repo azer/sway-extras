@@ -103,13 +103,13 @@ background() {
             show_all_output_menus
         fi
 
-	      sleep 1
+	      sleep 3
     done
 }
 
 show_output_menu() {
     selected_output=$1
-    modes=$(swaymsg -t get_outputs | jq ".[] | select(.name == \"$selected_output\") | .modes | map(\"\(.width)x\(.height)\") | .[]" | sed 's/"//g' | tac | tr '\n' ',' | sed 's/,$//')
+    modes=$(swaymsg -t get_outputs | jq ".[] | select(.name == \"$selected_output\") | .modes | map(\"\(.width)x\(.height)\") | .[]" | sed 's/"//g' | uniq | tac | tr '\n' ',' | sed 's/,$//')
     selected_mode=$(~/.happy-desktop/bin/prompt -o "disable,$modes" -q "Select a mode for $selected_output:")
     if [[ -z "${selected_mode// }" ]]; then
         exit 1
@@ -175,10 +175,15 @@ elif [[ $task == "menu" ]]; then
     show_menu
 elif [[ $task == "background" ]]; then
     background
+elif [[ $task == "icon" ]]; then
+    display_count=$(get_displays | wc -l)
+    if [[ $display_count -gt 1 ]]; then
+        echo "⎚"
+    fi
 else
     echo
     echo "SYNOPSIS"
-    echo "    displays [detect|configure|menu|background]"
+    echo "    displays [detect|configure|menu|background|icon]"
     echo
     echo "OPTIONS"
     echo "    -o --output"
